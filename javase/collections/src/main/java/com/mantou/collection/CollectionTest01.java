@@ -23,7 +23,6 @@ public class CollectionTest01 {
 
         collection1.add(6);
         collection1.add("mantou");
-
         collection.addAll(collection1);
 
         System.out.println(collection.toString());  // [15, 12, 6, mantou, 6, mantou]

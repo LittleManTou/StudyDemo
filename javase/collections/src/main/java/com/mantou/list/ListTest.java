@@ -24,7 +24,6 @@ public class ListTest {
         System.out.println(list.set(2, "wangwu"));  // lisi
         //4.删除功能  remove(int index)
         System.out.println(list.remove(2));  //wangwu
-
         //遍历List
 
         //1.普通for循环
