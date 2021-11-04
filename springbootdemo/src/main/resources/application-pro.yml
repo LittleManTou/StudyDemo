@@ -1,0 +1,26 @@
+#Server
+server:
+  port: 80
+#Spring
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mantou?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+#swagger
+swagger:
+  enable: true
+
+#pagehelper
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+#MyBatis   查看执行的sql
+#mybatis:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+

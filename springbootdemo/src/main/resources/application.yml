@@ -1,0 +1,5 @@
+#指定使用哪个级别的配置文件
+spring:
+  profiles:
+    active: dev
+

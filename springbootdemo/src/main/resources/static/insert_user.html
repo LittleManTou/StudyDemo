@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>易云时代-新增</title>
+		<link rel="shortcut icon" href="img/logo.ico" type="image/x-icon">
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+		<link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+		 
+		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+		<script src="jquery/jquery.js"></script>
+		 
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		<script src="bootstrap/bootstrap.min.js"></script>
+
+		<script src="plugins/layer/layer.min.js"></script>
+		<style>
+			body{
+				background-color: #E9E7E7;
+			}
+			#content{
+				width: 800px;
+				height: 450px;
+				margin-top: 50px;
+				padding-top: 60px;
+				padding-left: 80px;
+			
+			}
+			.inp{
+				margin-top: 20px;
+			}
+			#inpp{
+				margin-left: -15px;
+			}
+			#btn{
+				margin-top: 50px;
+				margin-left: 100px;
+			}
+			body .demo-class .layui-layer-title{background:#c00; color:#fff; border: none;}
+			body .demo-class .layui-layer-content{ background:#fff; color:black; border: none;}
+			body .demo-class .layui-layer-btn{border-top:1px solid #E9E7E7}
+			body .demo-class .layui-layer-btn a{background:#333;}
+			body .demo-class .layui-layer-btn .layui-layer-btn1{background:#999;}
+		</style>
+		<script>
+			function findAllRole(){
+				$.ajax({
+					url:'http://localhost/role/findAllRole',
+					type:'get',
+					success:function (res) {
+						console.log(res);
+						var str = "" ;
+						for(var k in res.data){
+							str +=  "<option value ="+res.data[k].id+">"+res.data[k].roleName+"</option>";
+						}
+						$("#roleId").html(str);
+					},
+					error:function () {
+						console.log("失败")
+						layer.open({
+							skin:'demo-class'
+							,type:0
+							,title: '提示'
+							,content: '查询角色错误!'
+							,icon:2
+						});
+					}
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div class="row">
+		  <div class="col-md-2"></div>
+		  <div class="col-md-8">
+			  <div id="content">
+			  	姓名:<input id="userName" class="inp" type="text" name="userName"    /> <br />
+			  	工号:<input id="jobNum" class="inp" type="text" name="jobNum" oninput="value=value.replace(/[^\d]/g,'')"  /><br />
+				  <div class="inp">
+			  	性别:
+				  男:<input checked="checked"  type="radio" name="sex" value="1" />
+				  女:<input   type="radio" name="sex" value="0" />
+				  </div>  <br />
+				角色:
+				  <select id="roleId">
+				  </select>
+				  <br />
+				<div id="btn">
+					<button id="btn1" type="button" class="btn btn-success">新增</button>
+					<button id="goBack" type="button" class="btn btn-info">返回</button>
+				</div>
+			  </div>
+			 
+		  </div>
+		  <div class="col-md-2"></div>
+		</div>
+		
+		
+	</body>
+	<script>
+		$(function(){
+			findAllRole();
+			$("#btn1").click(function(){
+				var userName = $("#userName").val();
+				var jobNum = $("#jobNum").val();
+				var sex = $("input[name='sex']:checked").val();
+				var roleId = $("#roleId option:selected").val();
+
+				if(userName == '' || jobNum == '' || sex == '' || roleId == ''){
+					// alert("表单不能有空项");
+					layer.open({
+						skin:'demo-class'
+						,type:0
+						,title: '提示'
+						,content: '表单不能有空项!'
+						,icon:2
+					});
+				}else{
+
+					$.ajax({
+						url:'http://localhost/user/insertUser',
+						type:'post',
+						contentType: 'application/json; charset=UTF-8',
+						// data:{"username":username,"phone":phone,"cid":cid,"balance":balance},
+						data:JSON.stringify({"userName":userName,"jobNum":jobNum,"sex":sex,"roleId":roleId}),
+						dataType:"json",
+						success:function (res) {
+
+							// alert(res.data);
+							if(res.data == 0){
+								layer.open({
+									skin:'demo-class'
+									,type:0
+									,title: '提示'
+									,content: "工号重复!"
+									,icon:2
+								});
+							}else if(res.data == 1){
+								layer.open({
+									skin:'demo-class'
+									,type:0
+									,title: '提示'
+									,content: "新增用户失败!"
+									,icon:2
+								});
+							}else{
+								layer.open({
+									skin:'demo-class'
+									,type:0
+									,title: '提示'
+									,content: "新增用户成功!"
+									,icon:1
+								});
+								$("#userName").val("");
+								$("#jobNum").val("");
+								$("input[name='sex']:checked").val("");
+								$("#roleId option:selected").val("");
+								//window.location.reload();
+							}
+
+						},
+						error:function () {
+							layer.open({
+								skin:'demo-class'
+								,type:0
+								,title: '提示'
+								,content: "新增失败!"
+								,icon:2
+							});
+						}
+					})
+
+
+				}
+				
+			}),
+			$("#goBack").click(function(){
+				//window.history.back(-1);
+				window.location.href = 'main.html';
+			})
+		})
+	</script>
+</html>
