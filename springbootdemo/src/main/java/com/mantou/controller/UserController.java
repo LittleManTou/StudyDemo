@@ -23,6 +23,7 @@ public class UserController {
     @ApiOperation(value = "查询所有用户信息")
     public PageResult findAllUser(User_InfoListRequest user_infoListRequest) {
         PageResult allUser = userService.findAllUser(user_infoListRequest);
+        log.info("allUser:{}",allUser);
         return allUser ;
     }
     @PostMapping("/insertUser")

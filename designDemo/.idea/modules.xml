@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/享元模式/享元模式.iml" filepath="$PROJECT_DIR$/享元模式/享元模式.iml" />
+      <module fileurl="file://$PROJECT_DIR$/代理模式/代理模式.iml" filepath="$PROJECT_DIR$/代理模式/代理模式.iml" />
+      <module fileurl="file://$PROJECT_DIR$/单例模式/单例模式.iml" filepath="$PROJECT_DIR$/单例模式/单例模式.iml" />
+      <module fileurl="file://$PROJECT_DIR$/原型模式/原型模式.iml" filepath="$PROJECT_DIR$/原型模式/原型模式.iml" />
+      <module fileurl="file://$PROJECT_DIR$/外观模式/外观模式.iml" filepath="$PROJECT_DIR$/外观模式/外观模式.iml" />
+      <module fileurl="file://$PROJECT_DIR$/工厂方法/工厂方法.iml" filepath="$PROJECT_DIR$/工厂方法/工厂方法.iml" />
+      <module fileurl="file://$PROJECT_DIR$/建造者模式/建造者模式.iml" filepath="$PROJECT_DIR$/建造者模式/建造者模式.iml" />
+      <module fileurl="file://$PROJECT_DIR$/抽象工厂/抽象工厂.iml" filepath="$PROJECT_DIR$/抽象工厂/抽象工厂.iml" />
+      <module fileurl="file://$PROJECT_DIR$/桥接模式/桥接模式.iml" filepath="$PROJECT_DIR$/桥接模式/桥接模式.iml" />
+      <module fileurl="file://$PROJECT_DIR$/简单工厂/简单工厂.iml" filepath="$PROJECT_DIR$/简单工厂/简单工厂.iml" />
+      <module fileurl="file://$PROJECT_DIR$/组合模式/组合模式.iml" filepath="$PROJECT_DIR$/组合模式/组合模式.iml" />
+      <module fileurl="file://$PROJECT_DIR$/装饰器模式/装饰器模式.iml" filepath="$PROJECT_DIR$/装饰器模式/装饰器模式.iml" />
+      <module fileurl="file://$PROJECT_DIR$/适配器模式/适配器模式.iml" filepath="$PROJECT_DIR$/适配器模式/适配器模式.iml" />
+    </modules>
+  </component>
+</project>
